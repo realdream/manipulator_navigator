@@ -1,0 +1,6 @@
+my_robot:
+ my_arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joint: 
+       - A
+       - B

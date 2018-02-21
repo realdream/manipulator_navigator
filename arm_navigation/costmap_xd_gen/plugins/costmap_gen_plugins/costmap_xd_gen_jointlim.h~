@@ -1,0 +1,23 @@
+#ifndef COSTMAP_XD_GEN_JOINTLIM_H_
+#define COSTMAP_XD_GEN_JOINTLIM_H_
+#include <costmap_xd_gen_base.h>
+#include <cmath>
+
+namespace costmap_gen_plugins
+{
+  class Joint_Limit :public costmap_xd_gen::costmap_xd_gen_base
+  {
+    public:
+	CostMap_Gen_Jointlim();
+	void initialize()
+	{
+	return;
+	}
+ 	int process();
+	{
+	return 0;
+	}
+  };
+};
+#endif
+

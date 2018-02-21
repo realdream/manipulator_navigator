@@ -1,0 +1,8 @@
+<launch>
+<include file="$(find x_description)/launch/our_arm.launch"/>
+  <node pkg="joint_state_controller" type="joint_state_controller" name="joint_state_controller" output="screen">
+<rosparam file="$(find joint_state_controller)/param/joints_setting.yaml" command="load"/>
+  </node>
+<node pkg="visualization" type="terminatio_sim" name="terminatio_sim" output="screen"/>
+<node pkg="tf" type="static_transform_publisher" name="tf_base2arm" args="0 0 0.3 0 0 0 base_link arm_link 20" output="screen"/>
+</launch>

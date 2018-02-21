@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="test_robot"> 
+<!--********************************const param***********************************-->
+<xacro:property name="M_PI"   value="3.141592654"/>
+<xacro:property name="M_PI_2" value="1.570796327"/>
+<!--***********************************link***************************************-->
+  <link name="arm_link"> 
+      <visual> 
+        <geometry>
+<cylinder length="0.6" radius="0.05"/>
+         </geometry>
+        <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+       <origin rpy="${M_PI_2} 0 0" xyz="0 0 0"/>
+      
+    </visual>
+    <collision> 
+        <geometry>
+<cylinder length="0.6" radius="0.05"/>
+        </geometry>
+        <origin rpy="${M_PI_2} 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+  <link name="arm_rota_link"> 
+      <visual> 
+        <geometry>
+<cylinder length="0.6" radius="0.05"/>
+        </geometry>
+        <material name="blue">
+          <color rgba="0 0 .8 1"/>
+        </material>
+        <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>
+      </visual>
+      <collision> 
+        <geometry>
+<cylinder length="0.6" radius="0.05"/>
+        </geometry>
+        <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>
+      </collision>
+
+  </link>
+
+  <link name="arm_a_link">  
+    <visual>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+       <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>  
+    </visual> 
+    <collision>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+       <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>  
+    </collision>   
+  </link> 
+
+  <link name="arm_b_link">  
+    <visual>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+      <material name="blue">
+      </material>
+       <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>
+     </visual>  
+     <collision>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>
+       <origin rpy="${M_PI_2} 0 ${M_PI}" xyz="0 0 0"/>  
+     </collision>  
+  </link> 
+
+  <link name="arm_c_link">  
+    <visual>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+      <material name="blue">
+      </material>
+       <origin rpy="0 ${M_PI} 0" xyz="0 0 0"/> 
+	 
+    </visual>  
+    <collision>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+       <origin rpy="0 ${M_PI} 0" xyz="0 0 0"/> 
+	 
+    </collision>  
+  </link> 
+
+  <link name="arm_d_link">  
+    <visual>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+      <material name="blue">
+      </material>
+       <origin rpy="0 0 0" xyz="0 0 0"/>  
+    </visual>  
+    <collision>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+       <origin rpy="0 0 0" xyz="0 0 0"/>  
+    </collision>  
+  </link> 
+
+  <link name="arm_hand_link">  
+    <visual>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+      <material name="blue">
+      </material>
+       <origin rpy="0 0 0" xyz="0 0 0"/>  
+    </visual>  
+    <collision>  
+       <geometry>  
+<cylinder length="0.6" radius="0.05"/>
+       </geometry>  
+       <origin rpy="0 0 0" xyz="0 0 0"/>  
+    </collision>
+  </link> 
+ <!-- 
+  <link name="finger1_link">  
+    <visual>  
+       <geometry>  
+         <cylinder length="0.075" radius="0.002"/>  
+       </geometry>  
+      <material name="white">
+      </material> 
+       <origin rpy="0 0 0" xyz="0 0 .0375"/>
+	
+    </visual>  
+  </link> 
+
+
+  <link name="finger2_link">  
+    <visual>  
+       <geometry>  
+         <cylinder length="0.075" radius="0.002"/>  
+       </geometry>  
+      <material name="white">
+      </material> 
+       <origin rpy="0 0 0" xyz="0 0 .0375"/>
+	
+    </visual>  
+  </link> 
+-->
+<!--***********************************joint***************************************-->
+
+  <joint name="joint_arm_a_1" type="revolute">  
+    <parent link="arm_link"/>  
+    <child link="arm_rota_link"/> 
+    <origin  rpy="0 0 0" xyz="0 0 0.0"/> 
+    <limit effort="10" velocity="10"/>  
+    <axis xyz="0 0 1"/> 
+  </joint>  
+ 
+
+  <joint name="joint_arm_a_2" type="revolute">  
+    <parent link="arm_rota_link"/>  
+    <child link="arm_a_link"/> 
+    <origin  rpy="0 0 0" xyz="0 0.05 0.137"/> 
+    <limit effort="10" velocity="10"/> 
+  </joint>
+
+ 
+  <joint name="joint_arm_a_3" type="revolute">  
+    <parent link="arm_a_link"/>  
+    <child link="arm_b_link"/>  
+    <origin  xyz="0 0 0.28"/> 
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10"/> 
+  </joint> 
+
+
+
+  <joint name="joint_arm_b_1" type="revolute">  
+    <parent link="arm_b_link"/>  
+    <child link="arm_c_link"/> 
+     <origin  xyz="0 0.026 0.03"/> 
+     <axis xyz="0 1 0"/> 
+     <limit effort="10" velocity="10"/> 
+  </joint>
+
+  <joint name="joint_arm_b_2" type="revolute">  
+    <parent link="arm_c_link"/>  
+    <child link="arm_d_link"/>  
+     <origin  xyz="0 0.2815 0"/> 
+     <axis xyz="1 0 0"/> 
+    <limit effort="10" velocity="10"/> 
+  </joint>
+
+  <joint name="joint_arm_b_3" type="revolute">  
+    <parent link="arm_d_link"/>  
+    <child link="arm_hand_link"/>  
+     <origin  xyz="0 0.034 0"/> 
+     <axis xyz="0 1 0"/> 
+    <limit effort="10" velocity="10"/> 
+  </joint>
+
+
+ <!--- <joint name="joint_arm_twist2_finger1" type="continuous">  
+    <parent link="twist2_link"/>  
+    <child link="finger1_link"/> 
+   <origin  xyz="0 0.02 0.005"/> 
+  </joint> 
+
+
+  <joint name="joint_arm_twist2_finger2" type="continuous">  
+    <parent link="twist2_link"/>  
+    <child link="finger2_link"/> 
+   <origin rpy="0 0 3.1415916" xyz="0 -0.02 0.005"/> 
+  </joint>-->
+</robot>

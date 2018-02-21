@@ -1,0 +1,18 @@
+#ifndef COSTMAP_XD_GEN_BASE_H_
+#define COSTMAP_XD_GEN_BASE_H_
+
+namespace costmap_gen_base
+{
+  class CostMap_Gen
+  {
+    public:
+      virtual void initialize() = 0;
+      virtual int process() = 0;
+      virtual ~CostMap_Gen(){}
+
+    protected:
+      CostMap_Gen(){}
+  };
+};
+#endif
+

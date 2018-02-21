@@ -1,0 +1,10 @@
+<library path="lib/libcostmap_gen_plugin_joint_limit">
+  <class type="costmap_gen_plugins::Joint_Limit" base_class_type="costmap_gen_base::BaseClass">
+    <description>This is a plugin for gen joint limit.</description>
+  </class>
+</library>
+<library path="lib/libcostmap_gen_plugin_obstacle_limit">
+  <class type="costmap_gen_plugins::Obstacle_Limit" base_class_type="costmap_gen_base::BaseClass">
+    <description>This is a plugin for gen joint limit.</description>
+  </class>
+</library>

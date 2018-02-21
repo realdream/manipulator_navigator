@@ -1,0 +1,7 @@
+<launch>
+<include file="$(find x_description)/launch/our_arm.launch"/>
+  <node pkg="joint_state_controller" type="joint_state_controller" name="joint_state_controller" output="screen">
+<rosparam file="$(find joint_state_controller)/param/joints_setting.yaml" command="load"/>
+  </node>
+
+</launch>

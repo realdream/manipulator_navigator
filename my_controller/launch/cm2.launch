@@ -1,0 +1,6 @@
+<launch>
+<!-- Load the default controllers -->
+<node name="my_controller" pkg="my_controller" type="my_hardware_interface2" respawn="false"
+ output="screen"  />
+<rosparam file="$(find my_controller)/param/controllers2.yaml " command="load" />
+</launch>
