@@ -1,4 +1,0 @@
- my_arm_controller:
-    type: position_controllers/JointPositionController
-    joint: 
-      joint_arm_a_1

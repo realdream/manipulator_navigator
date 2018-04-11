@@ -1,5 +1,0 @@
-#include <pluginlib/class_list_macros.h>
-#include <costmap_gen_plugins/base.h>
-#include <costmap_gen_plugins/joint_limit.h>
-
-PLUGINLIB_EXPORT_CLASS(costmap_gen_plugins::joint_limit,costmap_xd_gen_base::RegularPolygon)
